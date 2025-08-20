@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Streamlit App",
+            "type": "python",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "app/app.py"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
