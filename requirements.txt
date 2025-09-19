@@ -1,5 +1,8 @@
 streamlit>=1.36.0
 pillow>=10.3.0
-opencv-python>=4.9.0
-pytesseract>=0.3.10
 numpy>=1.26.0
+keras>=2.13.0
+tensorflow>=2.13.0
+opencv-python>=4.8.0
+matplotlib>=3.7.0
+scipy>=1.10.0
