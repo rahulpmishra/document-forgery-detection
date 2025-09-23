@@ -31,7 +31,7 @@ We use a Convolutional Neural Network (CNN) - a type of AI that's really good at
 
 ### Usage
 
-**Run the Streamlit Web Application:**
+**Option 1: Streamlit Web Application (Recommended)**
 ```bash
 streamlit run streamlit_app.py
 ```
@@ -41,6 +41,29 @@ Open your browser and navigate to `http://localhost:8501`
 - Upload any PNG, JPG, or JPEG document image
 - View the original document and ELA analysis side by side
 - Get instant prediction results with confidence percentage
+
+**Option 2: Batch Testing Tool (For Multiple Images)**
+```bash
+# Test entire folder
+python batch_test.py /path/to/test/images
+
+# Test single image
+python batch_test.py image.jpg
+
+# Save results to JSON file
+python batch_test.py /path/to/images --output results.json
+
+# Use custom model
+python batch_test.py /path/to/images --model ./models/my_model.h5
+```
+
+**Batch Tool Features:**
+- ✅ Process multiple images at once
+- ✅ Detailed results for each image with confidence scores
+- ✅ Summary statistics (total count, forged/authentic percentages)
+- ✅ Export results to JSON format
+- ✅ Progress tracking and error handling
+- ✅ Support for entire folders or single images
 
 ## 📊 Dataset Information
 
@@ -78,6 +101,7 @@ This notebook contains:
 ```
 document-forgery-detection/
 ├── streamlit_app.py          # Main Streamlit web application
+├── batch_test.py             # Command-line batch testing tool
 ├── models/
 │   └── trained_model.h5      # Trained CNN model (you need to add this)
 ├── requirements.txt          # Python dependencies
@@ -99,11 +123,20 @@ The trained CNN model achieves high accuracy in detecting forged vs authentic do
 
 ## 🔧 Features
 
+### Web Interface (Streamlit)
 - **Real-time Detection**: Fast inference for immediate results
 - **ELA Visualization**: Side-by-side comparison of original and ELA images
 - **Confidence Scoring**: Percentage confidence for each prediction
-- **Web Interface**: User-friendly drag-and-drop interface
+- **User-friendly Interface**: Drag-and-drop file upload
 - **No Setup Required**: Just upload and analyze
+
+### Batch Testing Tool (Command Line)
+- **Bulk Processing**: Test hundreds of images at once
+- **Detailed Reports**: Individual results with confidence scores
+- **Summary Statistics**: Total counts and percentages
+- **JSON Export**: Save results for further analysis
+- **Progress Tracking**: Real-time processing updates
+- **Error Handling**: Graceful handling of corrupted files
 
 ## 🚀 Deployment
 
