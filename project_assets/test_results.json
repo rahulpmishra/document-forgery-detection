@@ -1,0 +1,222 @@
+{
+  "timestamp": "2025-10-01T01:15:50.134609",
+  "statistics": {
+    "total_images": 30,
+    "forged_count": 11,
+    "authentic_count": 19,
+    "errors": 0,
+    "processing_time": 6.2
+  },
+  "detailed_results": [
+    {
+      "image_path": "project_assets\\raw_test_images\\1.png",
+      "filename": "1.png",
+      "prediction": "Forged",
+      "confidence": 98.83999633789062,
+      "raw_score": 0.011594411917030811
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\10.jpg",
+      "filename": "10.jpg",
+      "prediction": "Forged",
+      "confidence": 69.48999786376953,
+      "raw_score": 0.305133581161499
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\11.png",
+      "filename": "11.png",
+      "prediction": "Forged",
+      "confidence": 99.98999786376953,
+      "raw_score": 9.756624058354646e-05
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\12.png",
+      "filename": "12.png",
+      "prediction": "Authentic",
+      "confidence": 99.88999938964844,
+      "raw_score": 0.9988599419593811
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\13.jpg",
+      "filename": "13.jpg",
+      "prediction": "Forged",
+      "confidence": 88.45999908447266,
+      "raw_score": 0.11536617577075958
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\14.jpg",
+      "filename": "14.jpg",
+      "prediction": "Authentic",
+      "confidence": 83.80000305175781,
+      "raw_score": 0.8379696607589722
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\15.jpg",
+      "filename": "15.jpg",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\16.png",
+      "filename": "16.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\17.png",
+      "filename": "17.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 0.9999688863754272
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\18.jpg",
+      "filename": "18.jpg",
+      "prediction": "Authentic",
+      "confidence": 92.61000061035156,
+      "raw_score": 0.9261400103569031
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\19.png",
+      "filename": "19.png",
+      "prediction": "Forged",
+      "confidence": 93.48999786376953,
+      "raw_score": 0.06507214158773422
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\2.png",
+      "filename": "2.png",
+      "prediction": "Forged",
+      "confidence": 90.4800033569336,
+      "raw_score": 0.09518657624721527
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\20.png",
+      "filename": "20.png",
+      "prediction": "Authentic",
+      "confidence": 99.98999786376953,
+      "raw_score": 0.9999427795410156
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\21.png",
+      "filename": "21.png",
+      "prediction": "Authentic",
+      "confidence": 99.58999633789062,
+      "raw_score": 0.9959025382995605
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\22.jpg",
+      "filename": "22.jpg",
+      "prediction": "Forged",
+      "confidence": 52.220001220703125,
+      "raw_score": 0.477796733379364
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\23.jpg",
+      "filename": "23.jpg",
+      "prediction": "Authentic",
+      "confidence": 99.95999908447266,
+      "raw_score": 0.9996364712715149
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\24.png",
+      "filename": "24.png",
+      "prediction": "Forged",
+      "confidence": 64.31999969482422,
+      "raw_score": 0.3567515015602112
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\25.jpg",
+      "filename": "25.jpg",
+      "prediction": "Forged",
+      "confidence": 83.19999694824219,
+      "raw_score": 0.16802901029586792
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\26.png",
+      "filename": "26.png",
+      "prediction": "Authentic",
+      "confidence": 60.119998931884766,
+      "raw_score": 0.6011876463890076
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\27.png",
+      "filename": "27.png",
+      "prediction": "Authentic",
+      "confidence": 98.13999938964844,
+      "raw_score": 0.9814484715461731
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\28.png",
+      "filename": "28.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\29.png",
+      "filename": "29.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\3.jpg",
+      "filename": "3.jpg",
+      "prediction": "Authentic",
+      "confidence": 91.08999633789062,
+      "raw_score": 0.910901665687561
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\30.png",
+      "filename": "30.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\4.jpg",
+      "filename": "4.jpg",
+      "prediction": "Forged",
+      "confidence": 50.86000061035156,
+      "raw_score": 0.4914323687553406
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\5.png",
+      "filename": "5.png",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 1.0
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\6.jpg",
+      "filename": "6.jpg",
+      "prediction": "Forged",
+      "confidence": 73.81999969482422,
+      "raw_score": 0.261761337518692
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\7.jpg",
+      "filename": "7.jpg",
+      "prediction": "Authentic",
+      "confidence": 100.0,
+      "raw_score": 0.9999996423721313
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\8.jpeg",
+      "filename": "8.jpeg",
+      "prediction": "Authentic",
+      "confidence": 99.9800033569336,
+      "raw_score": 0.9998146891593933
+    },
+    {
+      "image_path": "project_assets\\raw_test_images\\9.jpg",
+      "filename": "9.jpg",
+      "prediction": "Authentic",
+      "confidence": 99.9000015258789,
+      "raw_score": 0.9990063905715942
+    }
+  ]
+}
