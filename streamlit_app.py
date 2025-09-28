@@ -11,9 +11,34 @@ st.set_page_config(
     layout="wide"
 )
 
-# Title
-st.title("📄 Document Forgery Detection")
-st.write("Upload a document image to detect if it has been tampered with using Error Level Analysis and CNN.")
+# Header with GitHub link
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.title("📄 Document Forgery Detection")
+    st.write("Upload a document image to detect if it has been tampered with using Error Level Analysis and CNN.")
+
+with col2:
+    st.markdown("### 🔗 Links")
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-Complete_Project-blue?logo=github)](https://github.com/rahulpmishra/document-forgery-detection)")
+    st.markdown("[![Kaggle](https://img.shields.io/badge/Kaggle-Training_Notebook-orange?logo=kaggle)](https://www.kaggle.com/code/rahulprakashmishra/image-forgery-detection-cnn-training)")
+
+st.markdown("---")
+
+# Sidebar for settings
+st.sidebar.header("⚙️ Settings")
+threshold = st.sidebar.slider(
+    "Classification Threshold", 
+    min_value=0.1, 
+    max_value=0.9, 
+    value=0.5, 
+    step=0.05,
+    help="Threshold for classifying as Forged (≤) vs Authentic (>)"
+)
+
+st.sidebar.markdown("**Threshold Guide:**")
+st.sidebar.markdown("• **Lower (0.3-0.4):** More sensitive to forgery")
+st.sidebar.markdown("• **Default (0.5):** Balanced detection") 
+st.sidebar.markdown("• **Higher (0.6-0.7):** More conservative")
 
 @st.cache_resource
 def load_detection_model():
@@ -54,7 +79,7 @@ def prepare_image_for_prediction(image):
     ela_image = convert_to_ela_image_memory(image, 90)
     return np.array(ela_image.resize(image_size)).flatten() / 255.0
 
-def predict_forgery(image):
+def predict_forgery(image, threshold=0.5):
     """Predict if image is forged or authentic"""
     model = load_detection_model()
     class_names = ["Forged", "Authentic"]
@@ -63,15 +88,17 @@ def predict_forgery(image):
     test_image = test_image.reshape(-1, 128, 128, 3)
     
     y_pred = model.predict(test_image, verbose=0)
-    y_pred_class = round(y_pred[0][0])
+    raw_score = float(y_pred[0][0])
     
-    prediction = class_names[y_pred_class]
-    if y_pred <= 0.5:
-        confidence = f"{(1-(y_pred[0][0])) * 100:.2f}"
+    # Use dynamic threshold
+    prediction = class_names[0] if raw_score <= threshold else class_names[1]
+    
+    if raw_score <= threshold:
+        confidence = f"{(1-raw_score) * 100:.2f}"
     else:
-        confidence = f"{(y_pred[0][0]) * 100:.2f}"
+        confidence = f"{raw_score * 100:.2f}"
     
-    return prediction, confidence
+    return prediction, confidence, raw_score
 
 # Main interface
 uploaded_file = st.file_uploader(
@@ -87,18 +114,29 @@ if uploaded_file is not None:
     # Run prediction first
     with st.spinner("Analyzing document for forgery detection..."):
         try:
-            prediction, confidence = predict_forgery(image)
+            prediction, confidence, raw_score = predict_forgery(image, threshold)
             
             # Display results first
             st.subheader("🎯 Detection Results")
             
             # Create result container with color coding
-            if prediction == "Authentic":
-                st.success(f"**Prediction:** {prediction}")
-                st.success(f"**Confidence:** {confidence}%")
-            else:
-                st.error(f"**Prediction:** {prediction}")
-                st.error(f"**Confidence:** {confidence}%")
+            col1, col2, col3 = st.columns([2, 2, 2])
+            
+            with col1:
+                if prediction == "Authentic":
+                    st.success(f"**Prediction:** {prediction}")
+                else:
+                    st.error(f"**Prediction:** {prediction}")
+                    
+            with col2:
+                if prediction == "Authentic":
+                    st.success(f"**Confidence:** {confidence}%")
+                else:
+                    st.error(f"**Confidence:** {confidence}%")
+                    
+            with col3:
+                st.info(f"**Raw Score:** {raw_score:.4f}")
+                st.caption(f"Threshold: {threshold}")
                 
         except Exception as e:
             st.error(f"Error during analysis: {str(e)}")
@@ -129,6 +167,26 @@ else:
     to detect document forgery and tampering.
     
     - **Upload** any PNG, JPG, or JPEG document image
+    - **Adjust** the classification threshold in the sidebar
     - **View** the original document and ELA analysis side by side
     - **Get** instant prediction results with confidence percentage
     """)
+
+# Footer
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; color: #666; padding: 20px;'>
+        <p style='color: #888; font-size: 14px;'>
+            👨‍💻 <strong>Connect with me:</strong> <br> •
+            <a href="https://rpmdev.me" target="_blank">Portfolio</a> • 
+            <a href="https://github.com/rahulpmishra" target="_blank">GitHub</a> • 
+            <a href="https://www.kaggle.com/rahulprakashmishra" target="_blank">Kaggle</a> 
+        </p>
+        <p style='color: #aaa; font-size: 12px; margin-top: 15px;'>
+            💡 Explore more of my work and reach out for collaborations!
+        </p>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
