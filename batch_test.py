@@ -117,7 +117,7 @@ class BatchForgeryDetector:
                 "image_path": str(image_path),
                 "filename": os.path.basename(image_path),
                 "prediction": prediction,
-                "confidence": round(confidence, 2),
+                "confidence": float(round(confidence, 2)),
                 "raw_score": float(y_pred[0][0])
             }
             
@@ -137,10 +137,13 @@ class BatchForgeryDetector:
                 image_files.append(dataset_path)
         elif dataset_path.is_dir():
             for ext in image_extensions:
+                # Use case-insensitive search to avoid duplicates
                 image_files.extend(dataset_path.rglob(f'*{ext}'))
                 image_files.extend(dataset_path.rglob(f'*{ext.upper()}'))
         
-        return sorted(image_files)
+        # Remove duplicates by converting to set and back to list
+        unique_files = list(set(image_files))
+        return sorted(unique_files)
 
     def process_batch(self, dataset_path, show_progress=True):
         """Process all images in the dataset"""
@@ -175,7 +178,7 @@ class BatchForgeryDetector:
                 
             self.stats["total_images"] = len(image_files)
         
-        self.stats["processing_time"] = round(time.time() - start_time, 2)
+        self.stats["processing_time"] = float(round(time.time() - start_time, 2))
         return True
 
     def print_detailed_results(self):
